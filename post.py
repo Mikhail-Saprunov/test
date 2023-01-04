@@ -1,7 +1,19 @@
+from builtins import type
+
 import requests
+
+
+status = 'available'
+
+res = requests.get(f'https://petstore.swagger.io/v2/pet/findByStatus?status={status}', headers={'accept': 'application/json'})
+
+print("Статус ответа от сервера на GET запрос список питомцев: ",res.status_code)
+print(res.text)
+print(res.json())
+print(type(res.json()))
+
+
 import json
-
-
 
 # добавление питомца
 info = {
